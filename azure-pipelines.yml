@@ -49,7 +49,7 @@ stages:
       inputs:
         serviceConnectionEndpoint: 'snyk'
         testType: 'app'
-        targetFile: '$(Build.ArtifactStagingDirectory)'
+        #targetFile: '$(Build.ArtifactStagingDirectory)'
         monitorWhen: 'always'
         failOnIssues: false
     
