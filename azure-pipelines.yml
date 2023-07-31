@@ -44,6 +44,15 @@ stages:
 
     - upload: $(Build.ArtifactStagingDirectory)
       artifact: drop
+    
+    - task: SnykSecurityScan@1
+      inputs:
+        serviceConnectionEndpoint: 'snyk'
+        testType: 'app'
+        targetFile: '$(Build.ArtifactStagingDirectory)'
+        monitorWhen: 'always'
+        failOnIssues: false
+    
 
 - stage: Deploy
   displayName: Deploy stage
